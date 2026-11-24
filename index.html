@@ -1,0 +1,982 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steven Placencia | Portafolio</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --verde: #36ed79;
+    --texto: #b9c8bd;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080d09;
+    color: #f2f5f2;
+    line-height: 1.7;
+}
+
+header {
+    background: #101b13;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 1px solid #234b31;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    color: var(--verde);
+    font-size: 27px;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--verde);
+}
+
+.inicio {
+    min-height: 420px;
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background:
+        radial-gradient(circle at 85% 30%, #164a2a 0%, transparent 35%),
+        linear-gradient(120deg, #101b13, #080d09);
+    border-bottom: 1px solid #234b31;
+}
+
+.etiqueta {
+    color: var(--verde);
+    border: 1px solid #27884a;
+    padding: 6px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.inicio h2 {
+    font-size: clamp(35px, 6vw, 58px);
+    max-width: 750px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.inicio h2 span {
+    color: var(--verde);
+}
+
+.inicio p {
+    color: var(--texto);
+    font-size: 17px;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--verde);
+    color: #07100a;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 75px 10%;
+}
+
+.titulo {
+    font-size: 30px;
+    color: var(--verde);
+    margin-bottom: 12px;
+}
+
+.subtitulo {
+    color: var(--texto);
+    margin-bottom: 30px;
+}
+
+.sobre-mi {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.perfil {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid var(--verde);
+    box-shadow: 0 0 25px #36ed7930;
+}
+
+.descripcion {
+    flex: 1;
+    min-width: 250px;
+    color: var(--texto);
+}
+
+/* PROYECTOS */
+
+.proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+}
+
+.proyecto {
+    background: linear-gradient(145deg, #17271c, #0d160f);
+    border: 1px solid #284d34;
+    border-radius: 15px;
+    padding: 17px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.proyecto:hover {
+    transform: translateY(-8px);
+    border-color: var(--verde);
+    box-shadow: 0 12px 30px #36ed7918;
+}
+
+.proyecto img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.numero {
+    color: var(--verde);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.proyecto h3 {
+    color: white;
+    margin: 5px 0 10px;
+    font-size: 21px;
+}
+
+.proyecto p {
+    color: var(--texto);
+    font-size: 14px;
+}
+
+.herramienta {
+    color: var(--verde) !important;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* LABORATORIO */
+
+.laboratorio {
+    background: #101a13;
+    border-top: 1px solid #234b31;
+    border-bottom: 1px solid #234b31;
+}
+
+.generador {
+    background: #080d09;
+    padding: 20px;
+    border: 1px solid #347448;
+    border-radius: 12px;
+}
+
+.generador h3 {
+    color: var(--verde);
+    margin-bottom: 15px;
+}
+
+#arteCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #347448;
+    border-radius: 8px;
+    background: #080d09;
+}
+
+.controles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.controles button {
+    margin-top: 5px;
+}
+
+.info {
+    color: var(--texto);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* HERRAMIENTAS */
+
+.herramientas {
+    background: #101a13;
+    border-top: 1px solid #234b31;
+    border-bottom: 1px solid #234b31;
+}
+
+.lista-herramientas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.lista-herramientas span {
+    padding: 10px 20px;
+    background: #17291c;
+    border: 1px solid #347448;
+    color: var(--verde);
+    border-radius: 8px;
+}
+
+/* AUDIO Y VIDEO */
+
+.multimedia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.multimedia-card {
+    background: #142019;
+    border: 1px solid #284d34;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.multimedia-card h3 {
+    color: var(--verde);
+    margin-bottom: 10px;
+}
+
+.multimedia-card p {
+    color: var(--texto);
+}
+
+audio, video {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 18px;
+    border-radius: 8px;
+}
+
+/* CONTACTO */
+
+.formulario {
+    max-width: 650px;
+    background: linear-gradient(145deg, #17271c, #0d160f);
+    padding: 30px;
+    border: 1px solid #284d34;
+    border-radius: 15px;
+}
+
+label {
+    display: block;
+    margin-top: 17px;
+    margin-bottom: 7px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    background: #080d09;
+    color: white;
+    border: 1px solid #347448;
+    border-radius: 7px;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 8px #36ed7940;
+}
+
+input[type="radio"] {
+    width: auto;
+    accent-color: var(--verde);
+    margin-right: 7px;
+    margin-left: 8px;
+}
+
+button {
+    background: var(--verde);
+    color: #07100a;
+    border: none;
+    padding: 13px 28px;
+    margin-top: 22px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.nota {
+    color: var(--texto);
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    background: #101a13;
+    padding: 30px 15px;
+    border-top: 1px solid #284d34;
+}
+
+footer h3 {
+    color: var(--verde);
+    letter-spacing: 2px;
+}
+
+footer p {
+    color: var(--texto);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+footer a {
+    color: var(--verde);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+@media (max-width: 650px) {
+
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .inicio {
+        padding: 75px 7%;
+    }
+
+    section {
+        padding: 50px 7%;
+    }
+
+    .sobre-mi {
+        justify-content: center;
+    }
+
+    .formulario {
+        padding: 20px;
+    }
+
+    .controles {
+        flex-direction: column;
+    }
+
+    .controles button {
+        width: 100%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SP. DESIGN</h1>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#laboratorio">Laboratorio</a>
+        <a href="#experiencia">Multimedia</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- PRESENTACION -->
+
+<section class="inicio" id="inicio">
+
+    <span class="etiqueta">PORTAFOLIO CREATIVO 2026</span>
+
+    <h2>
+        Steven
+        <span>Placencia</span>
+    </h2>
+
+    <p>Alias VENNY | Estudiante de Diseño Multimedia</p>
+
+    <a href="#proyectos" class="boton">
+        Ver mis proyectos
+    </a>
+
+</section>
+
+<!-- SOBRE MI -->
+
+<section id="sobre-mi">
+
+    <h2 class="titulo">Sobre mí</h2>
+
+    <div class="sobre-mi">
+
+        <img src="imagenes/perfil.jpg"
+        alt="Foto de Steven"
+        class="perfil">
+
+        <div class="descripcion">
+
+            <p>
+                Hola, soy Steven Placencia, estudiante de
+                Diseño Multimedia. Me gusta el diseño gráfico,
+                la edición de imágenes y la creación de modelos
+                en 3D. Me interesa aprender nuevas herramientas
+                y desarrollar proyectos donde pueda expresar
+                mi creatividad.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROYECTOS -->
+
+<section id="proyectos">
+
+    <h2 class="titulo">Mis proyectos en modelado 3D</h2>
+
+    <p class="subtitulo">
+        Algunos de mis trabajos realizados en modelado 3D.
+    </p>
+
+    <div class="proyectos">
+
+        <div class="proyecto">
+
+            <span class="numero">PROYECTO 01</span>
+
+            <img src="imagenes/bodegon.jpg"
+            alt="Bodegón de frutas en 3D">
+
+            <h3>Bodegón de frutas en 3D</h3>
+
+            <p>
+                Este proyecto consiste en crear un bodegón
+                de frutas utilizando modelado tridimensional.
+                Se trabajó con diferentes formas, materiales,
+                colores e iluminación para conseguir una
+                composición visual atractiva.
+            </p>
+
+            <p class="herramienta">
+                Herramienta: Blender.
+            </p>
+
+        </div>
+
+        <div class="proyecto">
+
+            <span class="numero">PROYECTO 02</span>
+
+            <img src="imagenes/ajedrez.jpg"
+            alt="Tabla de ajedrez en 3D">
+
+            <h3>Tabla de ajedrez en 3D</h3>
+
+            <p>
+                Este proyecto consiste en modelar una tabla
+                de ajedrez en tres dimensiones, creando el
+                tablero y sus piezas. Se utilizaron diferentes
+                formas, materiales y texturas para darle
+                un aspecto más realista.
+            </p>
+
+            <p class="herramienta">
+                Herramienta: Blender.
+            </p>
+
+        </div>
+
+        <div class="proyecto">
+
+            <span class="numero">PROYECTO 03</span>
+
+            <img src="imagenes/escenario.jpg"
+            alt="Escenario modelado en 3D">
+
+            <h3>Espacio y Astronauta 3D</h3>
+
+            <p>
+                Este proyecto consiste en modelar un espacio
+                y un astronauta en 3D, utilizando Blender
+                con diferentes texturas.
+            </p>
+
+            <p class="herramienta">
+                Herramienta: Blender.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LABORATORIO GENERATIVO -->
+
+<section class="laboratorio" id="laboratorio">
+
+    <h2 class="titulo">Mi laboratorio generativo</h2>
+
+    <p class="subtitulo">
+        GEOMETRIC ART - Diseños creados con programación.
+    </p>
+
+    <div class="generador">
+
+        <h3>MI ARTE DIGITAL</h3>
+
+        <canvas id="arteCanvas" width="900" height="500">
+            Tu navegador no soporta Canvas.
+        </canvas>
+
+        <div class="controles">
+
+            <button type="button" id="paleta1">
+                Paleta 1
+            </button>
+
+            <button type="button" id="paleta2">
+                Paleta 2
+            </button>
+
+            <button type="button" id="generar">
+                Generar composición
+            </button>
+
+            <button type="button" id="descargar">
+                Guardar PNG
+            </button>
+
+        </div>
+
+        <p class="info">
+            Selecciona una paleta y genera diferentes dibujos.
+            Puedes guardar tu diseño como imagen.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- HERRAMIENTAS -->
+
+<section class="herramientas">
+
+    <h2 class="titulo">Herramientas creativas</h2>
+
+    <p class="subtitulo">
+        Programas que forman parte de mi aprendizaje multimedia.
+    </p>
+
+    <div class="lista-herramientas">
+        <span>Blender</span>
+        <span>Diseño 3D</span>
+        <span>Edición digital</span>
+        <span>Diseño gráfico</span>
+        <span>Creatividad</span>
+        <span>JavaScript</span>
+        <span>Canvas</span>
+    </div>
+
+</section>
+
+<!-- AUDIO Y VIDEO -->
+
+<section id="experiencia">
+
+    <h2 class="titulo">Mi experiencia multimedia</h2>
+
+    <p class="subtitulo">
+        También me interesa la creación de contenido audiovisual.
+    </p>
+
+    <div class="multimedia">
+
+        <div class="multimedia-card">
+
+            <h3>Audio creativo</h3>
+
+            <p>
+                Este audio representa mi interés por mis gustos musicales.
+            </p>
+
+            <audio controls>
+                <source src="audio/muestra.mp3"
+                type="audio/mpeg">
+                Tu navegador no permite reproducir este audio.
+            </audio>
+
+        </div>
+
+        <div class="multimedia-card">
+
+            <h3>Video creativo</h3>
+
+            <p>
+                Este video muestra mi interés por la edición
+                y creación de contenido audiovisual.
+            </p>
+
+            <video controls>
+                <source src="video/muestra.mp4"
+                type="video/mp4">
+                Tu navegador no permite reproducir este video.
+            </video>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+    <h2 class="titulo">Trabajemos juntos</h2>
+
+    <p class="subtitulo">
+        Si tienes una idea o proyecto, puedes completar
+        este formulario.
+    </p>
+
+    <form class="formulario"
+    onsubmit="alert('Formulario de demostración. No se guardaron ni enviaron datos.'); return false;">
+
+        <label for="nombre">Nombre:</label>
+
+        <input type="text" id="nombre" name="nombre"
+        placeholder="Escribe tu nombre" required>
+
+        <label for="correo">Correo electrónico:</label>
+
+        <input type="email" id="correo" name="correo"
+        placeholder="ejemplo@gmail.com" required>
+
+        <label for="interes">
+            ¿Qué proyecto te interesa?
+        </label>
+
+        <select id="interes" name="interes" required>
+
+            <option value="">Selecciona una opción</option>
+            <option value="bodegon">Bodegón de frutas en 3D</option>
+            <option value="ajedrez">Tabla de ajedrez en 3D</option>
+            <option value="escenario">Escenario 3D</option>
+            <option value="otro">Otro proyecto multimedia</option>
+
+        </select>
+
+        <label>¿Te gustaría trabajar conmigo?</label>
+
+        <input type="radio" name="colaboracion"
+        value="Si" required> Sí
+
+        <input type="radio" name="colaboracion"
+        value="No"> No
+
+        <label for="mensaje">Mensaje:</label>
+
+        <textarea id="mensaje" name="mensaje"
+        rows="4" placeholder="Escribe tu mensaje..."></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+
+        <p class="nota">
+            Nota: Este formulario es demostrativo.
+            No guarda ni envía información. Utiliza datos
+            ficticios para probarlo.
+        </p>
+
+    </form>
+
+</section>
+
+<!-- PIE DE PAGINA -->
+
+<footer>
+
+    <h3>SP. DESIGN</h3>
+
+    <p>
+        © 2026 Steven Placencia | Portafolio Multimedia
+    </p>
+
+    <p>Creatividad · Diseño · Modelado 3D</p>
+
+    <p>
+        <a href="landing.html">Volver a la landing page grupal</a>
+    </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// Variables
+
+const canvas = document.getElementById("arteCanvas");
+const ctx = canvas.getContext("2d");
+
+let paletaActual = 0;
+
+// Arreglos de colores
+
+const paletas = [
+
+    ["#36ed79", "#ffffff", "#167b43", "#a1ffb9"],
+
+    ["#00e5ff", "#ffffff", "#168aad", "#b5fff9"]
+
+];
+
+// Dibujar fondo
+
+function fondo() {
+
+    // Degradado de colores
+
+    let degradado = ctx.createLinearGradient(0, 0, 900, 500);
+
+    degradado.addColorStop(0, "#101b13");
+    degradado.addColorStop(1, "#080d09");
+
+    ctx.fillStyle = degradado;
+    ctx.fillRect(0, 0, 900, 500);
+
+}
+
+// Dibujar círculo
+
+function circulo(x, y, radio, color) {
+
+    ctx.beginPath();
+    ctx.arc(x, y, radio, 0, Math.PI * 2);
+
+    ctx.fillStyle = color;
+    ctx.fill();
+
+}
+
+// Dibujar cuadrado
+
+function cuadrado(x, y, tamano, color) {
+
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, tamano, tamano);
+
+}
+
+// Dibujar triángulo
+
+function triangulo(x, y, tamano, color) {
+
+    ctx.beginPath();
+
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + tamano, y);
+    ctx.lineTo(x + tamano / 2, y - tamano);
+
+    ctx.closePath();
+
+    ctx.fillStyle = color;
+    ctx.fill();
+
+}
+
+// Generar composición
+
+function generar() {
+
+    fondo();
+
+    // Título dentro del Canvas
+
+    ctx.fillStyle = "white";
+    ctx.font = "bold 38px Arial";
+    ctx.fillText("GEOMETRIC ART", 30, 65);
+
+    ctx.fillStyle = paletas[paletaActual][0];
+    ctx.font = "18px Arial";
+    ctx.fillText("DISEÑO GENERATIVO", 32, 95);
+
+    // Dibujar 25 figuras aleatorias
+
+    for (let i = 0; i < 25; i++) {
+
+        let x = Math.random() * 850;
+        let y = 130 + Math.random() * 330;
+
+        let tamano = 15 + Math.random() * 35;
+
+        let color = paletas[paletaActual][
+            Math.floor(Math.random() * 4)
+        ];
+
+        // Cambiar la figura dependiendo del número
+
+        if (i % 3 == 0) {
+
+            circulo(x, y, tamano, color);
+
+        } else if (i % 3 == 1) {
+
+            cuadrado(x, y, tamano, color);
+
+        } else {
+
+            triangulo(x, y, tamano, color);
+
+        }
+
+    }
+
+    // Dibujar líneas
+
+    for (let i = 0; i < 10; i++) {
+
+        let x = Math.random() * 900;
+        let y = Math.random() * 500;
+
+        ctx.beginPath();
+
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + 70, y + 40);
+
+        ctx.strokeStyle = paletas[paletaActual][0];
+        ctx.stroke();
+
+    }
+
+    // Texto inferior
+
+    ctx.fillStyle = "white";
+    ctx.font = "14px Arial";
+
+    ctx.fillText("SP. DESIGN - 2026", 30, 480);
+
+}
+
+// Botón paleta 1
+
+document.getElementById("paleta1").addEventListener("click", function() {
+
+    paletaActual = 0;
+    generar();
+
+});
+
+// Botón paleta 2
+
+document.getElementById("paleta2").addEventListener("click", function() {
+
+    paletaActual = 1;
+    generar();
+
+});
+
+// Botón generar composición
+
+document.getElementById("generar").addEventListener("click", function() {
+
+    generar();
+
+});
+
+// Descargar imagen PNG
+
+document.getElementById("descargar").addEventListener("click", function() {
+
+    let imagen = document.createElement("a");
+
+    imagen.download = "mi-arte-generativo.png";
+    imagen.href = canvas.toDataURL("image/png");
+
+    imagen.click();
+
+});
+
+// Mostrar composición al abrir la página
+
+generar();
+
+</script>
+
+</body>
+</html>
